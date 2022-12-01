@@ -1,0 +1,68 @@
+---
+title: "Test"
+author: "CC"
+date: last-modified
+date-format: iso
+bibliography: references.bib
+format:
+  revealjs:
+    # theme: beige
+    theme: serif    # 像 LaTeX
+
+    # transition: fade
+    # preview-links: auto
+    # slide-number: true
+    # slide-tone: true
+    # show-slide-number: print
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 2
+      src: "Chalkboard.json"
+    scrollable: true
+    footer: "Footer text"
+    logo: cover.jpg
+---
+
+## ZZZ
+
+Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
+
+## A
+
+$$
+\begin{aligned}
+  f(X) = y.
+\end{aligned}
+$$ {#eq-EEE}
+
+
+## B
+  
+See @eq-EEE.
+
+::: {#thm-TTT}
+Let $A = B.$ Then $C = D.$
+:::
+
+## C
+
+See @thm-TTT.
+
+## D
+
+See @bookdown2016.
+
+
+
+
+
+
+
+
+
+
+
+
+
+## References
+

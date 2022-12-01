@@ -23,9 +23,6 @@ format:
     logo: cover.jpg
 ---
 
-## ZZZ
-
-Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
 
 ## A
 
@@ -35,22 +32,26 @@ $$
 \end{aligned}
 $$ {#eq-EEE}
 
+`r paste(stringi::stri_rand_lipsum(10, start_lipsum = FALSE), collapse = '\n\n')`
+
+
 
 ## B
   
 See @eq-EEE.
 
 ::: {#thm-TTT}
-Let $A = B.$ Then $C = D.$
+Let $A = B.$ 
+Then $C = D.$
 :::
+
+`r paste(stringi::stri_rand_lipsum(10, start_lipsum = FALSE), collapse = '\n\n')`
 
 ## C
 
 See @thm-TTT.
 
-## D
 
-See @bookdown2016.
 
 
 

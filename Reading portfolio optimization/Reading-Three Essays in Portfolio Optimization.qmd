@@ -23,35 +23,301 @@ format:
     logo: cover.jpg
 ---
 
-Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
+The importance of portfolio optimization models in practice has increased a great deal with advances in computational power.
+Nowadays they are used for various areas in the financial industry.
+The general idea behind portfolio optimization models is the determination of assets holdings that maximize or minimize a certain criterion.
+The most well-known of these models is certainly the mean-variance model developed by Markowitz (1952).
+In this intuitive approach an investor determines the assets holdings that maximize (minimize) the expected portfolio mean (variance) in the presence of certain constraints.
+Numerous other portfolio optimization models build on the work of Markowitz (1952); all serve the main purpose of maximizing the portfolio performance of an investor and are,
+for example,
+used by banks and asset management companies.
+However,
+investment maximization is not the only application of portfolio optimization models in practice.
+They can also serve as an important tool for the valuation of companies’ liabilities,
+for example in the insurance industry.
+
+隨著計算能力的進步，投資組合優化模型在實踐中的重要性大大增加。
+如今，它們被用於金融業的各個領域。
+投資組合優化模型背後的一般思想是確定最大化或最小化某個標準的資產持有量。
+這些模型中最著名的當然是 Markowitz (1952) 開發的均值-方差模型。
+在這種直觀的方法中，投資者確定在存在某些約束條件下最大化（最小化）預期投資組合均值（方差）的資產持有量。
+許多其他投資組合優化模型都建立在 Markowitz (1952) 的工作之上；所有這些都是為了最大化投資者的投資組合績效的主要目的，並且是，
+例如，
+由銀行和資產管理公司使用。
+然而，
+投資最大化並不是投資組合優化模型在實踐中的唯一應用。
+它們還可以作為公司負債估值的重要工具，
+例如在保險業。
 
 
-## A
+In this thesis we analyze portfolio optimization models with a practical relevance.
+For each chapter we implement our models using several real-life,
+large-scale data sets.
+In the first two chapters we examine optimization models that aim to maximize an investor’s performance.
+In Chapter 1 we discuss the choice of a successful portfolio optimization model and develop a model that combines the strengths of the global minimum variance (GMV) portfolio by Markowitz (1952) and another well-known model,
+developed by Black and Litterman (1990).
+Chapter 2 addresses one of the main issues in the portfolio optimization field: the estimation of models’ input parameters.
+We develop a forecasting approach for predicting probabilities for returns larger than certain percentiles.
+Based on these forecasts we conduct a trading strategy in which an investor has the choice to invest in the risk-free rate or the stock market.
+In Chapter 3 we examine an optimization problem in a different portfolio optimization field: the valuation of companies’ liabilities.
+In particular we focus on the life insurance industry and develop a replicating portfolio (RP) model that approximates life insurance liabilities as closely as possible.
 
-$$
-\begin{aligned}
-  f(X) = y.
-\end{aligned}
-$$ {#eq-EEE}
+在本文中，我們分析了具有實際相關性的投資組合優化模型。
+對於每一章，我們都會使用幾個現實生活中的模型來實現我們的模型，
+大規模數據集。
+在前兩章中，我們研究了旨在最大化投資者績效的優化模型。
+在第 1 章中，我們討論了成功的投資組合優化模型的選擇，並開發了一個結合了 Markowitz（1952）的全局最小方差（GMV）投資組合和另一個著名模型的優勢的模型，
+由 Black 和 Litterman (1990) 開發。
+第 2 章解決了投資組合優化領域的主要問題之一：模型輸入參數的估計。
+我們開發了一種預測方法來預測回報率大於某些百分位數的概率。
+基於這些預測，我們制定了一種交易策略，在該策略中，投資者可以選擇投資於無風險利率或股票市場。
+在第 3 章中，我們研究了不同投資組合優化領域中的優化問題：公司負債的估值。
+我們特別關注人壽保險行業，並開發了一個盡可能接近人壽保險負債的複制投資組合 (RP) 模型。
 
-`r paste(stringi::stri_rand_lipsum(10, start_lipsum = FALSE), collapse = '\n\n')`
+
+We address the topics in the following way:
+Chapter 1 addresses the choice of a portfolio optimization model for asset management companies.
+An asset management company faces two potentially contradictory goals.
+On the one hand,
+a portfolio optimization model has to be intuitive and easily understandable if it is to be sold to potential clients.
+On the other hand,
+the model should have a small risk exposure and provide high returns on investments.
+In practice,
+many asset management companies nowadays still use optimization models based on the mean variance approach developed by Markowitz (1952),
+despite its well-known shortcomings,
+including,
+for example,
+the difficulty to estimate expected returns for all assets and the high sensitivity to input parameters.
+One portfolio in the Markowitz framework that overcomes these weaknesses of the traditional mean variance approach is the GMV portfolio.
+For this portfolio we do not need mean estimations,
+which are usually unreliable.
+Instead,
+the covariance matrix—which is simpler to estimate by comparison—is a sufficient input.
+Another portfolio optimization model that has generated high returns in practice is the Black–Litterman (B–L) model.
+This model—introduced by Black and Litterman (1990)—combines the market equilibrium with investors’ views on the performance of some (but usually not all) assets in the universe.
+This model was implemented successfully in practice at Goldman Sachs.
+However, its shortcomings are its high complexity and a high degree of uncertainty with regard to its input parameters.
+
+我們通過以下方式處理這些主題：
+第 1 章介紹了資產管理公司投資組合優化模型的選擇。
+一家資產管理公司面臨著兩個可能相互矛盾的目標。
+一方面，
+如果要出售給潛在客戶，投資組合優化模型必須直觀且易於理解。
+另一方面，
+該模型應具有較小的風險敞口並提供較高的投資回報。
+在實踐中，
+如今，許多資產管理公司仍在使用基於 Markowitz (1952) 開發的均值方差方法的優化模型，
+儘管它有眾所周知的缺點，
+包含，
+例如，
+難以估計所有資產的預期回報以及對輸入參數的高度敏感。
+馬科維茨框架中克服傳統均值方差方法這些弱點的一種投資組合是 GMV 投資組合。
+對於這個投資組合，我們不需要均值估計，
+這通常是不可靠的。
+反而，
+協方差矩陣——通過比較更容易估計——是一個足夠的輸入。
+另一種在實踐中產生高回報的投資組合優化模型是 Black–Litterman (B–L) 模型。
+該模型由 Black 和 Litterman (1990) 提出，將市場均衡與投資者對宇宙中某些（但通常不是全部）資產表現的看法相結合。
+該模型在高盛的實踐中得到成功實施。
+然而，其缺點是複雜度高，輸入參數的不確定性高。
+
+
+In Chapter 1 we develop a model that combines the GMV portfolio with the B–L model to reap the benefits of both approaches.
+In contrast to the original B–L approach we use the intuitive GMV portfolio as the reference portfolio.
+Furthermore,
+we introduce a general rule to simulate investors’ views to improve the GMV portfolio by clearing it of so-called dead assets.
+Our approach mostly relies on covariance estimations.
+Mean estimations only have a minor impact for the simulation of investors’ views in our general rule.
+Thereby we only consider relative values of expected returns between assets.
+A numerical application of our model to empirical data sets demonstrates that portfolios based on the model clearly outperform the GMV portfolio and the 1/N portfolio in terms of compound annual returns and Sharpe ratios.
+
+在第 1 章中，我們開發了一個模型，該模型將 GMV 投資組合與 B-L 模型相結合，以利用這兩種方法的優勢。
+與原始的 B-L 方法相比，我們使用直觀的 GMV 組合作為參考組合。
+此外，
+我們引入了一個通用規則來模擬投資者的觀點，通過清除所謂的死資產來改善 GMV 投資組合。
+我們的方法主要依賴於協方差估計。
+在我們的一般規則中，均值估計對模擬投資者觀點的影響很小。
+因此，我們只考慮資產之間預期收益的相對值。
+我們的模型對經驗數據集的數值應用表明，基於該模型的投資組合在復合年回報率和夏普比率方面明顯優於 GMV 投資組合和 1/N 投資組合。
+
+
+Chapter 2 focuses on an essential portfolio optimization issue: the forecast of input parameters.
+In Chapter 1 we point out that mean estimations are unreliable.
+However,
+Christoffersen and Diebold (2006) show that the sign of asset returns can be forecasted despite the absence of mean “forecastability”.
+The idea behind sign prediction is to provide a probability—expressed as a percentage—for a return larger than zero in the next period.
+Sign predictions are based on explanatory variables,
+which can—in contrast to the mean—be forecasted.
+These explanatory variables include,
+for example,
+volatility (see Christoffersen and Diebold (2006)),
+skewness and kurtosis (see Christoffersen et al. (2007)),
+the interest rate and the term spread (see Chevapatrakul (2013)),
+or a recession indicator (see Nyberg (2011)).
+A suitable choice for sign prediction is classification models,
+in particular logit and probit approaches.
+Methods for evaluating predictive power differ in the literature.
+Common forecasting tests include market timing tests (see Pesaran and Timmermann (1992) and Anatolyev and Gerko (2005)),
+Brier scores (see Christoffersen et al. (2007),
+Anatolyev (2009),
+and Nyberg and
+P¨onk¨a (2015)),
+and pseudo-R2 measures (see Chevapatrakul (2013) and Nyberg and P¨onk¨a (2015)).
+Sign predictions can be applied in trading strategies.
+In these strategies,
+investments are made in the stock market or a safer alternative—such as bonds or treasury bills—based on the probability of a positive return from the stock market in the next period.
+
+第 2 章關註一個基本的投資組合優化問題：輸入參數的預測。
+在第 1 章中，我們指出均值估計是不可靠的。
+然而，
+Christoffersen 和 Diebold（2006 年）表明，儘管沒有均值“可預測性”，但可以預測資產回報率的符號。
+符號預測背後的想法是提供一個概率——以百分比表示——下一個週期的回報大於零。
+符號預測基於解釋變量，
+與平均值相反，它可以被預測。
+這些解釋變量包括，
+例如，
+波動性（參見 Christoffersen 和 Diebold (2006)），
+偏度和峰度（參見 Christoffersen 等人 (2007)），
+利率和期限利差（參見 Chevapatrakul (2013)），
+或衰退指標（參見 Nyberg (2011)）。
+標誌預測的合適選擇是分類模型，
+特別是 logit 和 probit 方法。
+評估預測能力的方法在文獻中有所不同。
+常見的預測測試包括市場時機測試（參見 Pesaran 和 Timmermann (1992) 以及 Anatolyev 和 Gerko (2005)），
+Brier 評分（參見 Christoffersen 等人 (2007)，
+阿納托利耶夫 (2009),
+和尼伯格和
+龐卡 (2015),
+和偽 R2 措施（參見 Chevapatrakul (2013) 和 Nyberg 和 P¨onk¨a (2015)）。
+符號預測可以應用於交易策略。
+在這些策略中，
+投資於股票市場或更安全的替代品——例如債券或國庫券——基於下一個時期從股票市場獲得正回報的可能性。
+
+
+In Chapter 2 we take the idea and intuition of sign forecasting one step further and extend it to also forecast the probabilities of returns larger than certain percentiles.
+Such percentile forecasts can be particularly useful for an investor who wants to avoid periods with large negative returns and
+to reduce the volatility of his or her investments.
+Our prediction model is based on a binary logit approach and we forecast probabilities for returns larger than 
+0%, −2%, −4%, −6%, and −8%.
+As explanatory variables we use the conditional volatility calculated with a GARCH(1,1) approach,
+the unconditional skewness,
+and the Mahalanobis distance (a turbulence measure that has not been used in the sign forecasting literature before).
+We evaluate our percentile forecasts with absolute Brier scores,
+a pseudo-R2 measure,
+and a new evaluation test,
+which is well suited to a visualization of predictive power.
+Test results show a superior forecasting performance of models that include the Mahalanobis distance and forecasted percentiles smaller than 0%.
+In the last step of our analysis we conduct a trading strategy based on our percentile forecasts.
+Depending on the probabilities of all asset forecasts we invest either in the stock market or the risk-free rate.
+Investments based on such a trading strategy provide better Sharpe ratios than their respective benchmark strategies.
+
+在第 2 章中，我們將符號預測的想法和直覺更進一步，並將其擴展到預測大於某些百分位數的回報概率。
+這種百分位預測對於希望避免出現大量負回報和
+以降低其投資的波動性。
+我們的預測模型基於二元對數方法，我們預測回報率大於
+0%、-2%、-4%、-6% 和-8%。
+作為解釋變量，我們使用通過 GARCH(1,1) 方法計算的條件波動率，
+無條件偏度，
+和 Mahalanobis 距離（以前未在符號預報文獻中使用的湍流度量）。
+我們用絕對 Brier 分數評估我們的百分位數預測，
+一個偽 R2 度量，
+和一個新的評估測試，
+這非常適合預測能力的可視化。
+測試結果表明，包括馬氏距離和小於 0% 的預測百分位數的模型具有出色的預測性能。
+在分析的最後一步，我們根據百分位數預測制定了交易策略。
+根據所有資產預測的概率，我們投資於股票市場或無風險利率。
+基於這種交易策略的投資提供了比各自基準策略更好的夏普比率。
+
+
+Chapter 3 addresses a different field of portfolio optimization than the two previous chapters.
+Instead of models with an investment purpose this chapter focuses on portfolio approaches for the valuation of companies’ liabilities.
+In particular we analyze the application and benefits of an RP model for the life insurance industry,
+which faces dramatic changes due to the Solvency II directive.
+This directive—a new regulatory framework for the European Union—has established new capital requirements,
+valuation techniques,
+and governing and reporting standards for insurance companies.
+It includes quantitative requirements,
+which force insurance companies to calculate the “fair” value of their liabilities.
+Some of these liabilities—such as,
+for example,
+the values of life insurance policies—are long-term and dependent on market conditions.
+An accurate valuation of such liabilities is very complex and—thus—several different evaluation techniques have become popular recently,
+among them approaches based on RPs.
+An RP (in the insurance context) is a pool of a finite number of selected financial instruments designed to (approximately) reproduce the cash flows or present values of liabilities across a large number of economic scenarios.
+Its optimization process comprises three steps.
+First,
+the determination of future scenario sets and the simulation of liabilities and candidate assets for different scenarios within these scenario sets.
+Second,
+the optimization of a portfolio—based on the candidate assets—that replicates the liabilities as closely as possible based on a certain metric.
+Third,
+a quality assessment of the RP in the light of several tests.
+
+第 3 章介紹了與前兩章不同的投資組合優化領域。
+本章不是以投資為目的的模型，而是側重於對公司負債進行估值的投資組合方法。
+我們特別分析了 RP 模型在人壽保險行業的應用和優勢，
+由於 Solvency II 指令，它面臨著巨大的變化。
+該指令——歐盟的新監管框架——制定了新的資本要求，
+估值技術，
+保險公司的管理和報告標準。
+它包括數量要求，
+這迫使保險公司計算其負債的“公允”價值。
+其中一些負債——例如，
+例如，
+人壽保險保單的價值——是長期的，取決於市場條件。
+對此類負債進行準確估值非常複雜，因此，最近流行了幾種不同的評估技術，
+其中包括基於 RP 的方法。
+RP（在保險方面）是一組有限數量的選定金融工具，旨在（近似地）在大量經濟情景中重現現金流或負債的現值。
+其優化過程包括三個步驟。
+第一的，
+未來情景集的確定以及針對這些情景集中不同情景的負債和候選資產的模擬。
+第二，
+基於候選資產的投資組合優化，根據特定指標盡可能接近地複制負債。
+第三，
+根據多項測試對 RP 進行質量評估。
+
+
+In Chapter 3 we focus on the second and the third steps of the RP optimization process.
+We take a set of candidate assets and cash flow vectors for liabilities and assets as given.
+We then formulate an L1 norm (which is superior to the L2 norm for the detection of outliers) optimization model to minimize the absolute difference between the liability cash flows and our RP cash flows.
+We employ two different linear reformulations of the L1 minimization problem.
+This enables us to solve our RP optimization model over many years and to include computationally cheap additional constraints.
+Our sets of additional constraints are supposed to ensure a relatively small RP and an RP that will likely perform in the same way as the mapped liabilities in a large range of different future scenarios.
+We assess the performance of our RP with several tests that are all performed with out-of-sample data.
+In particular we focus on the out-of-sample movements of the scenario sets and the market value fit between liability cash flows and those of the RP.
+Furthermore,
+we calculate the coefficient of determination,
+R2,
+between the RP and the liability cash flows.
+A numerical analysis demonstrates that our model delivers RPs with excellent practical properties in a reasonable amount of time.
+
+在第 3 章中，我們重點關注 RP 優化過程的第二步和第三步。
+我們採用一組給定的候選資產和負債和資產的現金流向量。
+然後，我們制定了一個 L1 範數（在異常值檢測方面優於 L2 範數）優化模型，以最小化負債現金流與我們的 RP 現金流之間的絕對差異。
+我們對 L1 最小化問題採用了兩種不同的線性重構。
+這使我們能夠解決多年來的 RP 優化模型，並包含計算成本低的附加約束。
+我們的附加約束集應該確保一個相對較小的 RP 和一個 RP 在大量不同的未來情景中可能以與映射負債相同的方式執行。
+我們通過幾個測試來評估我們的 RP 的性能，這些測試都是用樣本外數據執行的。
+我們特別關注場景集的樣本外變動以及負債現金流與 RP 現金流之間的市場價值匹配。
+此外，
+我們計算決定係數，
+R2,
+RP 和負債現金流量之間。
+數值分析表明，我們的模型在合理的時間內提供了具有出色實用特性的 RP。
 
 
 
-## B
-  
-See @eq-EEE.
 
-::: {#thm-TTT}
-Let $A = B.$ 
-Then $C = D.$
-:::
 
-`r paste(stringi::stri_rand_lipsum(10, start_lipsum = FALSE), collapse = '\n\n')`
 
-## C
 
-See @thm-TTT.
+
+
+
+
+
+
+
+
 
 
 

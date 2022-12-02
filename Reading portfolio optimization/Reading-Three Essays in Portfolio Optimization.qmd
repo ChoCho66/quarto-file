@@ -23,6 +23,8 @@ format:
     logo: cover.jpg
 ---
 
+Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat.
+
 
 ## A
 
@@ -50,7 +52,6 @@ Then $C = D.$
 ## C
 
 See @thm-TTT.
-
 
 
 

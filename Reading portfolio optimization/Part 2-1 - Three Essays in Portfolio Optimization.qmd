@@ -1,0 +1,59 @@
+---
+title: "Test"
+author: "CC"
+date: last-modified
+date-format: iso
+bibliography: references.bib
+format:
+  revealjs:
+    # theme: beige
+    theme: serif    # 像 LaTeX
+
+    # transition: fade
+    # preview-links: auto
+    # slide-number: true
+    # slide-tone: true
+    # show-slide-number: print
+    chalkboard:
+      theme: whiteboard
+      boardmarker-width: 2
+      src: "Chalkboard.json"
+    scrollable: true
+    footer: "Footer text"
+    logo: cover.jpg
+---
+
+# Three Essays in Portfolio Optimization {.unnumbered}
+
+- Minimum Variance and Black–Litterman
+
+  - An Improvement of the Global Minimum Variance Portfolio using a Black–Litterman Approach
+
+- Percentile Forecasting
+
+  - Percentile Forecasting and Trading Strategies
+
+- Replicating Portfolios in the Life Insurance Industry
+
+  - A Replicating Portfolio Optimization Model
+
+## An Improvement of the Global Minimum Variance Portfolio using a Black–Litterman Approach
+
+Abstract
+Asset management companies are constantly searching for portfolio optimization models that are on the one hand clear and intuitive and on the other provide high and reliable returns.
+This paper presents a modified version of the well-known Black–Litterman portfolio optimization approach.
+Unlike in the original model,
+the intuitive global minimum variance portfolio (GMV) serves as the reference portfolio.
+The introduction of a general rule for investors’ views in combination with a simplification of the original Black–Litterman approach facilitates the implementation of the model and enables us to remove so-called dead assets from the GMV portfolio.
+As an additional advantageous feature our model is only based on variance-covariance estimations,
+and relative return estimations for our general rule.
+A numerical application of our modified Black–Litterman model to empirical data sets demonstrates that portfolios based on the model clearly outperform the GMV portfolio and the 1/N portfolio in terms of compound annual returns and Sharpe ratios.
+
+資產管理公司一直在尋找投資組合優化模型，這些模型一方面清晰直觀，另一方面提供高而可靠的回報。
+本文介紹了著名的 Black-Litterman 投資組合優化方法的修改版本。
+與原始模型不同，
+直觀的全局最小方差投資組合（GMV）作為參考投資組合。
+引入投資者觀點的一般規則並簡化原始的 Black-Litterman 方法有助於模型的實施，並使我們能夠從 GMV 投資組合中刪除所謂的死資產。
+作為一個額外的優勢特徵，我們的模型僅基於方差-協方差估計，
+以及我們一般規則的相對回報估計。
+我們修改後的 Black-Litterman 模型在實證數據集上的數值應用表明，基於該模型的投資組合在復合年回報率和夏普比率方面明顯優於 GMV 投資組合和 1/N 投資組合。

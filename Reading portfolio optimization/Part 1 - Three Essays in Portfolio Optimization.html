@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="Part 1 - Three Essays in Portfolio Optimization_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Part 1 - Three Essays in Portfolio Optimization_files/libs/quarto-html/tabby.min.js"></script>
+<script src="Part 1 - Three Essays in Portfolio Optimization_files/libs/quarto-html/popper.min.js"></script>
+<script src="Part 1 - Three Essays in Portfolio Optimization_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="Part 1 - Three Essays in Portfolio Optimization_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Part 1 - Three Essays in Portfolio Optimization_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="Part 1 - Three Essays in Portfolio Optimization_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.1.251">
+
+  <meta name="author" content="CC">
+  <meta name="dcterms.date" content="2022-12-06">
+  <title>Test</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="Part 1 - Three Essays in Portfolio Optimization_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="Part 1 - Three Essays in Portfolio Optimization_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="Part 1 - Three Essays in Portfolio Optimization_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link href="Part 1 - Three Essays in Portfolio Optimization_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="Part 1 - Three Essays in Portfolio Optimization_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="Part 1 - Three Essays in Portfolio Optimization_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="Part 1 - Three Essays in Portfolio Optimization_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="Part 1 - Three Essays in Portfolio Optimization_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="Part 1 - Three Essays in Portfolio Optimization_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-captioned.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-captioned) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-captioned.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-captioned .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-captioned .callout-caption  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-captioned.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-captioned.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-caption {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-caption {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-caption {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-captioned .callout-body > .callout-content > :last-child {
+    margin-bottom: 0.5rem;
+  }
+
+  .callout.callout-captioned .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-captioned) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-caption {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-caption {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-caption {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-caption {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-caption {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="center">
+  <h1 class="title">Test</h1>
+  <p class="author">CC</p>
+  <p class="date">2022-12-06</p>
+</section>
+
+<section>
+<section id="introduction" class="title-slide slide level1 unnumbered center">
+<h1>Introduction</h1>
+
+</section>
+<section id="general-introduction" class="slide level2 unnumbered">
+<h2>General Introduction</h2>
+<p>The importance of portfolio optimization models in practice has increased a great deal with advances in computational power. Nowadays they are used for various areas in the financial industry. The general idea behind portfolio optimization models is the determination of assets holdings that maximize or minimize a certain criterion. The most well-known of these models is certainly the mean-variance model developed by Markowitz (1952). In this intuitive approach an investor determines the assets holdings that maximize (minimize) the expected portfolio mean (variance) in the presence of certain constraints. Numerous other portfolio optimization models build on the work of Markowitz (1952); all serve the main purpose of maximizing the portfolio performance of an investor and are, for example, used by banks and asset management companies. However, investment maximization is not the only application of portfolio optimization models in practice. They can also serve as an important tool for the valuation of companies’ liabilities, for example in the insurance industry.</p>
+<ul>
+<li>隨著計算能力的進步，投資組合優化模型在實踐中的重要性大大增加。 如今，它們被用於金融業的各個領域。</li>
+<li>投資組合優化模型背後的一般思想是確定最大化或最小化某個標準的資產持有量。</li>
+<li>這些模型中最著名的當然是 TODO: See Markowitz (1952) 開發的均值-方差模型。 在這種直觀的方法中，投資者確定在存在某些約束條件下最大化（最小化）預期投資組合均值（方差）的資產持有量。 許多其他投資組合優化模型都建立在 Markowitz (1952) 的工作之上；所有這些都是為了最大化投資者的投資組合績效的主要目的，並且是， 例如， 由銀行和資產管理公司使用。 然而， 投資最大化並不是投資組合優化模型在實踐中的唯一應用。 它們還可以作為公司負債估值的重要工具， 例如在保險業。</li>
+</ul>
+<p>In this thesis we analyze portfolio optimization models with a practical relevance. For each chapter we implement our models using several real-life, large-scale data sets. In the first two chapters we examine optimization models that aim to maximize an investor’s performance. In Chapter 1 we discuss the choice of a successful portfolio optimization model and develop a model that combines the strengths of the global minimum variance (GMV) portfolio by Markowitz (1952) and another well-known model, developed by Black and Litterman (1990). Chapter 2 addresses one of the main issues in the portfolio optimization field: the estimation of models’ input parameters. We develop a forecasting approach for predicting probabilities for returns larger than certain percentiles. Based on these forecasts we conduct a trading strategy in which an investor has the choice to invest in the risk-free rate or the stock market. In Chapter 3 we examine an optimization problem in a different portfolio optimization field: the valuation of companies’ liabilities. In particular we focus on the life insurance industry and develop a replicating portfolio (RP) model that approximates life insurance liabilities as closely as possible.</p>
+<ul>
+<li><p>在本文中，我們分析了具有實際相關性的投資組合優化模型。 對於每一章，我們都會使用幾個現實生活中的模型來實現我們的模型， 大規模數據集。 在前兩章中，我們研究了旨在最大化投資者績效的優化模型。</p></li>
+<li><p>在第 1 章中，我們討論了成功的投資組合優化模型的選擇，並開發了一個結合了 Markowitz（1952）的全局最小方差（GMV）(global minimum variance) 投資組合和另一個著名模型的優勢的模型， 由 Black 和 Litterman (1990) 開發。</p></li>
+<li><p>第 2 章解決了投資組合優化領域的主要問題之一：模型輸入參數的估計。 我們開發了一種預測方法來預測回報率大於某些百分位數的概率。 基於這些預測，我們制定了一種交易策略，在該策略中，投資者可以選擇投資於無風險利率或股票市場。</p></li>
+<li><p>在第 3 章中，我們研究了不同投資組合優化領域中的優化問題：公司負債的估值。 我們特別關注人壽保險行業，並開發了一個盡可能接近人壽保險負債的複制投資組合 (RP) 模型。</p></li>
+</ul>
+<p>We address the topics in the following way: Chapter 1 addresses the choice of a portfolio optimization model for asset management companies. An asset management company faces two potentially contradictory goals. On the one hand, a portfolio optimization model has to be intuitive and easily understandable if it is to be sold to potential clients. On the other hand, the model should have a small risk exposure and provide high returns on investments. In practice, many asset management companies nowadays still use optimization models based on the mean variance approach developed by Markowitz (1952), despite its well-known shortcomings, including, for example, the difficulty to estimate expected returns for all assets and the high sensitivity to input parameters. One portfolio in the Markowitz framework that overcomes these weaknesses of the traditional mean variance approach is the GMV portfolio. For this portfolio we do not need mean estimations, which are usually unreliable. Instead, the covariance matrix—which is simpler to estimate by comparison—is a sufficient input. Another portfolio optimization model that has generated high returns in practice is the Black–Litterman (B–L) model. This model—introduced by Black and Litterman (1990)—combines the market equilibrium with investors’ views on the performance of some (but usually not all) assets in the universe. This model was implemented successfully in practice at Goldman Sachs. However, its shortcomings are its high complexity and a high degree of uncertainty with regard to its input parameters.</p>
+<p>我們通過以下方式處理這些主題： - 第 1 章介紹了資產管理公司投資組合優化模型的選擇。 一家資產管理公司面臨著兩個可能相互矛盾的目標。 一方面， 如果要出售給潛在客戶，投資組合優化模型必須直觀且易於理解。 另一方面， 該模型應具有較小的風險敞口並提供較高的投資回報。 在實踐中， 如今，許多資產管理公司仍在使用基於 Markowitz (1952) 開發的均值方差方法的優化模型， 儘管它有眾所周知的缺點， 包含，例如， - 難以估計所有資產的預期回報以及對輸入參數的高度敏感。 馬科維茨框架中克服傳統均值方差方法這些弱點的一種投資組合是 GMV 投資組合。 TODO: 對於這個投資組合，我們不需要均值估計， 這通常是不可靠的。 反而， 協方差矩陣 ——通過比較更容易估計—— 是一個足夠的輸入。 - 另一種在實踐中產生高回報的投資組合優化模型是 Black–Litterman (B–L) 模型。 該模型由 Black 和 Litterman (1990) 提出，將市場均衡與投資者對宇宙中某些（但通常不是全部）資產表現的看法相結合。 該模型在高盛的實踐中得到成功實施。 然而，其缺點是複雜度高，輸入參數的不確定性高。</p>
+<p>In Chapter 1 we develop a model that combines the GMV portfolio with the B–L model to reap the benefits of both approaches. In contrast to the original B–L approach we use the intuitive GMV portfolio as the reference portfolio. Furthermore, we introduce a general rule to simulate investors’ views to improve the GMV portfolio by clearing it of so-called dead assets. Our approach mostly relies on covariance estimations. Mean estimations only have a minor impact for the simulation of investors’ views in our general rule. Thereby we only consider relative values of expected returns between assets. A numerical application of our model to empirical data sets demonstrates that portfolios based on the model clearly outperform the GMV portfolio and the 1/N portfolio in terms of compound annual returns and Sharpe ratios.</p>
+<ul>
+<li>在第 1 章中，我們開發了一個模型，該模型將 GMV 投資組合與 B-L 模型相結合，以利用這兩種方法的優勢。 與原始的 B-L 方法相比，我們使用直觀的 GMV 組合作為參考組合。 此外，
+<ul>
+<li>我們引入了一個通用規則來模擬投資者的觀點，通過清除所謂的死資產來改善 GMV 投資組合。 我們的方法主要依賴於協方差估計。 在我們的一般規則中，均值估計對模擬投資者觀點的影響很小。 TODO: 因此，我們只考慮資產之間預期收益的相對值。 我們的模型對經驗數據集的數值應用表明，基於該模型的投資組合在復合年回報率和夏普比率方面 TODO: 明顯優於 GMV 投資組合和 1/N 投資組合。</li>
+</ul></li>
+</ul>
+<p>Chapter 2 focuses on an essential portfolio optimization issue: the forecast of input parameters. In Chapter 1 we point out that mean estimations are unreliable. However, Christoffersen and Diebold (2006) show that the sign of asset returns can be forecasted despite the absence of mean “forecastability”. The idea behind sign prediction is to provide a probability—expressed as a percentage—for a return larger than zero in the next period. Sign predictions are based on explanatory variables, which can—in contrast to the mean—be forecasted. These explanatory variables include, for example, volatility (see Christoffersen and Diebold (2006)), skewness and kurtosis (see Christoffersen et al.&nbsp;(2007)), the interest rate and the term spread (see Chevapatrakul (2013)), or a recession indicator (see Nyberg (2011)). A suitable choice for sign prediction is classification models, in particular logit and probit approaches. Methods for evaluating predictive power differ in the literature. Common forecasting tests include market timing tests (see Pesaran and Timmermann (1992) and Anatolyev and Gerko (2005)), Brier scores (see Christoffersen et al.&nbsp;(2007), Anatolyev (2009), and Nyberg and P¨onk¨a (2015)), and pseudo-R2 measures (see Chevapatrakul (2013) and Nyberg and P¨onk¨a (2015)). Sign predictions can be applied in trading strategies. In these strategies, investments are made in the stock market or a safer alternative—such as bonds or treasury bills—based on the probability of a positive return from the stock market in the next period.</p>
+<ul>
+<li>第 2 章關註一個基本的投資組合優化問題：輸入參數的預測。 TODO: where 在第 1 章中，我們指出均值估計是不可靠的。 然而， Christoffersen 和 Diebold（2006 年）表明，儘管沒有均值“可預測性”，但可以預測資產回報率的符號。 符號預測背後的想法是提供一個概率 ——以百分比表示—— 下一個週期的回報大於零。</li>
+<li>符號預測基於解釋變量， 與平均值相反，它可以被預測。 這些解釋變量包括， 例如， 波動性（參見 Christoffersen 和 Diebold (2006)）， 偏度和峰度（參見 Christoffersen 等人 (2007)）， 利率和期限利差（參見 Chevapatrakul (2013)）， 或衰退指標（參見 Nyberg (2011)）。 標誌預測的合適選擇是分類模型，
+<ul>
+<li>特別是 logit 和 probit 方法。 評估預測能力的方法在文獻中有所不同。 常見的預測測試包括市場時機測試（參見 Pesaran 和 Timmermann (1992) 以及 Anatolyev 和 Gerko (2005)）， Brier 評分（參見 Christoffersen 等人 (2007)， 阿納托利耶夫 (2009), 和尼伯格和 龐卡 (2015), 和偽 R2 措施（參見 Chevapatrakul (2013) 和 Nyberg 和 P¨onk¨a (2015)）。 符號預測可以應用於交易策略。 在這些策略中， 投資於股票市場或更安全的替代品 ——例如債券或國庫券—— 基於下一個時期從股票市場獲得正回報的可能性。</li>
+</ul></li>
+</ul>
+<p>In Chapter 2 we take the idea and intuition of sign forecasting one step further and extend it to also forecast the probabilities of returns larger than certain percentiles. Such percentile forecasts can be particularly useful for an investor who wants to avoid periods with large negative returns and to reduce the volatility of his or her investments. Our prediction model is based on a binary logit approach and we forecast probabilities for returns larger than 0%, −2%, −4%, −6%, and −8%. As explanatory variables we use the conditional volatility calculated with a GARCH(1,1) approach, the unconditional skewness, and the Mahalanobis distance (a turbulence measure that has not been used in the sign forecasting literature before). We evaluate our percentile forecasts with absolute Brier scores, a pseudo-R2 measure, and a new evaluation test, which is well suited to a visualization of predictive power. Test results show a superior forecasting performance of models that include the Mahalanobis distance and forecasted percentiles smaller than 0%. In the last step of our analysis we conduct a trading strategy based on our percentile forecasts. Depending on the probabilities of all asset forecasts we invest either in the stock market or the risk-free rate. Investments based on such a trading strategy provide better Sharpe ratios than their respective benchmark strategies.</p>
+<ul>
+<li>在第 2 章中，我們將符號預測的想法和直覺更進一步，並將其擴展到預測大於某些百分位數的回報概率。 這種百分位預測對於希望避免出現大量負回報和 以降低其投資的波動性。 我們的預測模型基於二元對數方法，我們預測回報率大於 0%、-2%、-4%、-6% 和-8%。 作為解釋變量，
+<ul>
+<li>我們使用通過 GARCH(1,1) 方法計算的條件波動率， 無條件偏度， 和 Mahalanobis 距離（以前未在符號預報文獻中使用的湍流度量）。</li>
+<li>我們用絕對 Brier 分數評估我們的百分位數預測， 一個偽 R2 度量， 和一個新的評估測試， 這非常適合預測能力的可視化。</li>
+</ul></li>
+<li>測試結果表明，包括馬氏距離和小於 0% 的預測百分位數的模型具有出色的預測性能。</li>
+<li>在分析的最後一步，我們根據百分位數預測制定了交易策略。 根據所有資產預測的概率，我們投資於股票市場或無風險利率。 基於這種交易策略的投資提供了比各自基準策略更好的夏普比率。</li>
+</ul>
+<p>Chapter 3 addresses a different field of portfolio optimization than the two previous chapters. Instead of models with an investment purpose this chapter focuses on portfolio approaches for the valuation of companies’ liabilities. In particular we analyze the application and benefits of an RP model for the life insurance industry, which faces dramatic changes due to the Solvency II directive. This directive—a new regulatory framework for the European Union—has established new capital requirements, valuation techniques, and governing and reporting standards for insurance companies. It includes quantitative requirements, which force insurance companies to calculate the “fair” value of their liabilities. Some of these liabilities—such as, for example, the values of life insurance policies—are long-term and dependent on market conditions. An accurate valuation of such liabilities is very complex and—thus—several different evaluation techniques have become popular recently, among them approaches based on RPs. An RP (in the insurance context) is a pool of a finite number of selected financial instruments designed to (approximately) reproduce the cash flows or present values of liabilities across a large number of economic scenarios. Its optimization process comprises three steps. First, the determination of future scenario sets and the simulation of liabilities and candidate assets for different scenarios within these scenario sets. Second, the optimization of a portfolio—based on the candidate assets—that replicates the liabilities as closely as possible based on a certain metric. Third, a quality assessment of the RP in the light of several tests.</p>
+<ul>
+<li>第 3 章介紹了與前兩章不同的投資組合優化領域。 本章不是以投資為目的的模型，而是側重於對公司負債進行估值的投資組合方法。
+<ul>
+<li>我們特別分析了 TODO: ? RP 模型在人壽保險行業的應用和優勢， TODO: ? 由於 Solvency II 指令，它面臨著巨大的變化。 該指令 ——歐盟的新監管框架—— 制定了新的資本要求， 估值技術， 保險公司的管理和報告標準。 它包括數量要求， 這迫使保險公司計算其負債的“公允”價值。 其中一些負債——例如， 例如， 人壽保險保單的價值——是長期的，取決於市場條件。 對此類負債進行準確估值非常複雜，因此，最近流行了幾種不同的評估技術， 其中包括基於 RP 的方法。 RP（在保險方面）是一組有限數量的選定金融工具，旨在（近似地）在大量經濟情景中重現現金流或負債的現值。 其優化過程包括三個步驟。 第一的， 未來情景集的確定以及針對這些情景集中不同情景的負債和候選資產的模擬。 第二， 基於候選資產的投資組合優化，根據特定指標盡可能接近地複制負債。 第三， 根據多項測試對 RP 進行質量評估。</li>
+</ul></li>
+</ul>
+<p>In Chapter 3 we focus on the second and the third steps of the RP optimization process. We take a set of candidate assets and cash flow vectors for liabilities and assets as given. We then formulate an L1 norm (which is superior to the L2 norm for the detection of outliers) optimization model to minimize the absolute difference between the liability cash flows and our RP cash flows. We employ two different linear reformulations of the L1 minimization problem. This enables us to solve our RP optimization model over many years and to include computationally cheap additional constraints. Our sets of additional constraints are supposed to ensure a relatively small RP and an RP that will likely perform in the same way as the mapped liabilities in a large range of different future scenarios. We assess the performance of our RP with several tests that are all performed with out-of-sample data. In particular we focus on the out-of-sample movements of the scenario sets and the market value fit between liability cash flows and those of the RP. Furthermore, we calculate the coefficient of determination, R2, between the RP and the liability cash flows. A numerical analysis demonstrates that our model delivers RPs with excellent practical properties in a reasonable amount of time.</p>
+<ul>
+<li>在第 3 章中，我們重點關注 TODO: ? RP 優化過程的第二步和第三步。
+<ul>
+<li>我們採用一組給定的候選資產和負債和資產的現金流向量。</li>
+<li>然後，我們制定了一個 L1 範數（在異常值檢測方面優於 L2 範數）優化模型，以最小化負債現金流與我們的 RP 現金流之間的絕對差異。 我們對 L1 最小化問題採用了兩種不同的線性重構。 這使我們能夠解決多年來的 RP 優化模型，並包含計算成本低的附加約束。 我們的附加約束集應該確保一個相對較小的 RP 和一個 RP 在大量不同的未來情景中可能以與映射負債相同的方式執行。</li>
+<li>我們通過幾個測試來評估我們的 RP 的性能，這些測試都是用樣本外數據執行的。 我們特別關注場景集的樣本外變動以及負債現金流與 RP 現金流之間的市場價值匹配。 此外， 我們計算決定係數， R2, RP 和負債現金流量之間。</li>
+</ul></li>
+<li>數值分析表明，我們的模型在合理的時間內提供了具有出色實用特性的 RP。</li>
+</ul>
+</section>
+<section id="references" class="slide level2">
+<h2>References</h2>
+
+<img src="cover.jpg" class="slide-logo r-stretch"><div class="footer footer-default">
+<p>Footer text</p>
+</div>
+</section></section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="Part 1 - Three Essays in Portfolio Optimization_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="Part 1 - Three Essays in Portfolio Optimization_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="Part 1 - Three Essays in Portfolio Optimization_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="Part 1 - Three Essays in Portfolio Optimization_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="Part 1 - Three Essays in Portfolio Optimization_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="Part 1 - Three Essays in Portfolio Optimization_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="Part 1 - Three Essays in Portfolio Optimization_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="Part 1 - Three Essays in Portfolio Optimization_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="Part 1 - Three Essays in Portfolio Optimization_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="Part 1 - Three Essays in Portfolio Optimization_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="Part 1 - Three Essays in Portfolio Optimization_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'smaller': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true,"theme":"whiteboard","boardmarkerWidth":2,"src":"Chalkboard.json"},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        target: function(trigger) {
+          return trigger.previousElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        setTimeout(function() {
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn) {
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto-reveal',
+          placement: 'bottom-start'
+        };
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+        tippyHover(ref, function() {
+          var popup = window.document.createElement('div');
+          cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    });
+    </script>
+    
+
+</body></html>

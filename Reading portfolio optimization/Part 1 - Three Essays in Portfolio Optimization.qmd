@@ -25,7 +25,9 @@ format:
 
 
 # Introduction {.unnumbered}
-# General Introduction {.unnumbered}
+## General Introduction {.unnumbered}
+
+
 
 The importance of portfolio optimization models in practice has increased a great deal with advances in computational power.
 Nowadays they are used for various areas in the financial industry.
